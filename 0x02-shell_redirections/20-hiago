@@ -1,1 +1,2 @@
-#!/bin/bashtr -d "cC"
+#!/bin/bash
+tr -d "cC"
