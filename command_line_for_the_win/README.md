@@ -1,3 +1,3 @@
 # Command Line for Windows
 
-For the challenged, Completed commandline challenge @ https://cmdchallenge.com/
+For the windows command line challenge project @ https://cmdchallenge.com/
