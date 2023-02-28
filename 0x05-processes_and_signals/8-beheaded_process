@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# Author: Fortunatus A. Wulnye
 # sending signal for killing process
 pkill -f -SIGKILL 7-highlander
