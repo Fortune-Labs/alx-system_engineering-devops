@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Author - Fortunatus A. Wulnye
 # Loops from 1 to 10 and displays:
 #   "bad luck" for the 4th iteration
 #   "good luck" for the 8th iteration
@@ -15,7 +16,7 @@ do
   then
     echo "good luck"
   else
-    echo "Holberton School"
+    echo "Best School"
   fi
   (( count++ ))
 done
