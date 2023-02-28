@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Author: Fortunatus A. Wulnye
 # comments go here!
 # trap: receive signal
 echo $$ >> /var/run/holbertonscript.pid
