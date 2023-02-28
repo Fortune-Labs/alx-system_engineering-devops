@@ -6,6 +6,7 @@
 /**
  * infinite_while - Infinite while for manage zombie process
  * Void: No entry parameters
+ * Author: Fortunatus A. Wulnye
  * Return: exit 0 success
  */
 int infinite_while(void)
