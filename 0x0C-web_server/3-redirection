@@ -7,7 +7,6 @@ sudo apt-get update
 sudo apt-get install nginx -y
 
 # Configure redirection in Nginx
-sudo sed -i '42i \\tlocation /redirect_me {\n\t\treturn 301 https://www.linkedin.com/in/fortunatus-wulnye/;\n\t}' /etc/nginx/sites-available/default
-
+sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.linkedin.com/in/fortunatus-wulnye/ permanent;" /etc/nginx/sites-enabled/default
 # Restart Nginx service
 sudo systemctl restart nginx
