@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# This script configures Nginx to add a custom header to its HTTP response
+# on web-01 and web-02 servers.
+
+# Get hostname of current server
+var_hostname=$(hostname)
+
+# Define strings to be used for Nginx configuration
+ERROR_PAGE="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
+HEADER="server {\n\tadd_header X-Served-By $var_hostname;"
+
+# Update package list and install Nginx
+apt-get update -y
+apt-get install nginx -y
+
+# Create default index.html file
+echo "Hello World!" > /usr/share/nginx/html/index.html
+
+# Create custom 404 page
+mkdir -p /var/www/html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+
+# Configure Nginx to add custom header and error page
+sudo sed -i -E "s/^[^#]+location \/ \{/$ERROR_PAGE/" /etc/nginx/sites-available/default
+sudo sed -i -E "s/^server \{/$HEADER/" /etc/nginx/sites-available/default
+
+# Start Nginx service
+sudo service nginx start
