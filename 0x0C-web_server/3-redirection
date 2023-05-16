@@ -9,7 +9,7 @@ sudo apt-get install nginx -y
 echo "
 server {
     listen 80;
-    server_name your_domain_name.com;
+    server_name 52.201.211.55;
 
     location /redirect_me {
         return 301 https://www.linkedin.com/in/fortunatus-wulnye/;
