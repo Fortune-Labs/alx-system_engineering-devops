@@ -6,7 +6,7 @@
 sudo apt-get update
 sudo apt-get install nginx -y
 
-echo "
+sudo tee /etc/nginx/conf.d/redirect_me.conf <<EOF
 server {
     listen 80;
     server_name 52.201.211.55;
@@ -14,11 +14,8 @@ server {
     location /redirect_me {
         return 301 https://www.linkedin.com/in/fortunatus-wulnye/;
     }
-    # Add other server block configurations if needed
 }
-" | tee /etc/nginx/sites-available/redirect.conf
+EOF
 
-
-ln -s /etc/nginx/sites-available/redirect.conf /etc/nginx/sites-enabled/
-rm /etc/nginx/sites-enabled/default
-service nginx restart
+sudo nginx -t
+sudo service nginx restart
