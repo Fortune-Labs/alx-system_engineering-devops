@@ -14,7 +14,6 @@ server {
     location /redirect_me {
         return 301 https://www.linkedin.com/in/fortunatus-wulnye/;
     }
-
     # Add other server block configurations if needed
 }
 " | tee /etc/nginx/sites-available/redirect.conf
