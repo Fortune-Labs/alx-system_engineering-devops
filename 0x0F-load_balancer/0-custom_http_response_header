@@ -10,19 +10,10 @@ ERROR_PAGE="error_page 404 \/custom_404.html;\n location \/redirect_me {\n retur
 HEADER="server {\n\tadd_header X-Served-By $var_hostname;"
 
 # Update package list and install Nginx
-apt-get update -y
-apt-get install nginx -y
+sudo apt update
+sudo apt install -y nginx
 
-# Create default index.html file
-echo "Hello World!" > /usr/share/nginx/html/index.html
+# Configure custom HTTP response header
+sudo sed -i '/^http {/a \        server_tokens off;\n        add_header X-Served-By $hostname;' /etc/nginx/nginx.conf
 
-# Create custom 404 page
-mkdir -p /var/www/html
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-
-# Configure Nginx to add custom header and error page
-sudo sed -i -E "s/^[^#]+location \/ \{/$ERROR_PAGE/" /etc/nginx/sites-available/default
-sudo sed -i -E "s/^server \{/$HEADER/" /etc/nginx/sites-available/default
-
-# Start Nginx service
-sudo service nginx start
+sudo systemctl restart nginx
