@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # The script changes port used by Nginix from 8080 to 80
 
-#Replace 8080 with 80 in the config file
+# Replace 8080 with 80 in the config file
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 # Restart Ngnx service
 sudo service nginx restart
