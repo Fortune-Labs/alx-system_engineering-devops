@@ -24,7 +24,7 @@ server {
 
 	# SSL configuration
 	#
-	add_header X-Served-By 2135-web-01;
+	add_header X-Served-By 162018--web-01;
 	# listen 443 ssl default_server;
 	# listen [::]:443 ssl default_server;
 	#
